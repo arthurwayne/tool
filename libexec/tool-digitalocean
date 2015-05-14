@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'dotenv'
+require 'droplet_kit'
+Dotenv.load(File.join(__FILE__, '..', '..', '.env'))
+
+client = DropletKit::Client.new access_token: ENV['DIGITAL_OCEAN_TOKEN']
+
+client.droplets.create
